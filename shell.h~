@@ -1,0 +1,11 @@
+#ifndef SHELL_H
+#define SHELL_H
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+
+int _strlen(char *strg);
+int _printstrg(char *strg);
+int main(void);
+int main(int argc __attribute__((unused)), char **argv);
+#endif

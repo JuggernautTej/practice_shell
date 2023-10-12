@@ -1,0 +1,7 @@
+#include<stdio.h>
+#include<unistd.h>
+
+/**
+ * main - program entry point
+ * Return: Always 0.
+ */

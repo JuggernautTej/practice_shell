@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<sys/wait.h>
+#include<string.h>
+
+/**
+ * main - basic simple shell
+ * Return: 1 or 0.
+ */
+int main(void)
+{
+  size_t b_size = 0;
+  char *tkn, *b = NULL;
+  int status, i = 0;
+  char **array;
+  pid_t child_pid;
+  while (1)
+    {
+      write(1, "#cisfun$", 9);
+      if (getline(&b, &b_size, stdin) == -1)
+	{
+	  perror("Bye bye");
+	  exit(1);  
+	}
+      tkn = strtok(b, " \n");
+      array = (char **)malloc(sizeof(char *) * 1024);
+      if (array == NULL)
+	{
+	  perror("Error allocating memory");
+	  exit(1);
+	}
+      while (tkn)
+	{
+	  array[i] = tkn;
+	  i++;
+	  tkn = strtok(NULL, " \n");
+	}
+      array[i] = NULL;
+      child_pid = fork();
+      if (child_pid == -1)
+	{
+	  perror("Error, could not fork");
+	  exit(1);
+	}
+      if (child_pid == 0)
+	{
+	  if (execve(array[0], array, NULL) == -1)
+	    {
+	      perror("Error, could not create process");
+	      exit(1);
+	    }
+	}
+      else
+	{
+	  wait(&status);
+	}
+      i = 0;
+      free(array);
+    }
+  return (0);
+}
