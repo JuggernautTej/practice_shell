@@ -17,6 +17,7 @@ void free_dog(char **doggy);
 void exec_cmd(char **command);
 char *_getenv(char *name);
 int _strcmp(char *s1, char *s2);
+char *cmdpath_loc(char *cmd);
 
 extern char **environ;
 #endif

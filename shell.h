@@ -7,4 +7,5 @@
 int _strlen(char *strg);
 int _printstrg(char *strg);
 int main(int argc __attribute__((unused)), char **argv);
+int _putchar(char c);
 #endif

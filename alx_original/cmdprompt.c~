@@ -12,10 +12,7 @@ ssize_t in;
 s_buf = (char *)malloc(s_bufsize * sizeof(char));
 if (s_buf == NULL)
 exit(1);
-if (isatty(STDIN_FILENO))
-{
 _printstrg(c);
-}
 in = getline(&s_buf, &s_bufsize, stdin);
 if (in == -1)
 {
@@ -27,7 +24,6 @@ exit(1);
 else
 {
 perror("Error reading input");
-free(s_buf);
 exit(1);
 }
 }

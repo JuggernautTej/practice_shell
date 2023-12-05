@@ -1,0 +1,14 @@
+#include "shell.h"
+
+/**
+ * cmdpath_loc - a program that finds a path of a command.
+ * @cmd: the command.
+ *  Return: a string of the full path of the command.
+ */
+char *cmdpath_loc(char *cmd)
+{
+  char *path_env, *path_envcpy, *tkn, *file_path;
+  int cmd_len, directory_len;
+  struct stat buff;
+  path_env = _getenv("PATH");
+}
