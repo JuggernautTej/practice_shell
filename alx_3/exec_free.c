@@ -26,12 +26,15 @@ char *full_cmd = NULL;
 int status;
 char **env = environ;
 pid_t child_pid;
+printf("i am in\n");
 full_cmd = cmdpath_loc(command[0]);
 if (full_cmd == NULL)
 {
+printf("i am here again");
 free_dog(command);
 return;
 }
+printf("ready to fork\n");
 child_pid = fork();
 if (child_pid == -1)
 {

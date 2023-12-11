@@ -8,11 +8,13 @@
 char *_getenv(char *name)
 {
 char **my_environ = environ;
+char *little_env;
 int x;
 char *tkn;
 for (x = 0; my_environ[x] != NULL; x++)
 {
-tkn = strtok(my_environ[x], "=");
+little_env = my_environ[x];
+tkn = strtok(little_env[x], "=");
 if (_strcmp(tkn, name) == 0)
 {
 return (strtok(NULL, "="));

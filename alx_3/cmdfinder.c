@@ -11,11 +11,14 @@ char *path_env, *path_envcpy, *tkn, *file_path;
 int cmd_len, directory_len;
 struct stat buff;
 path_env = _getenv("PATH");
+printf("ready to path, %s\n", cmd);
 if (path_env)
 {
+  printf("In loop\n");
 path_envcpy = _strdup(path_env);
 cmd_len = _strlen(cmd);
 tkn = strtok(path_envcpy, ":");
+ printf("we wa\n");
 while (tkn != NULL)
 {
 directory_len = _strlen(tkn);
@@ -24,9 +27,11 @@ _strcpy(file_path, tkn);
 _strcat(file_path, "/");
 _strcat(file_path, cmd);
 _strcat(file_path, "\0");
+printf("ready to stat, %s\n", file_path);
 if (stat(file_path, &buff) == 0)
 {
 free(path_envcpy);
+printf("stat confirmed");
 return (file_path);
 }
 else
