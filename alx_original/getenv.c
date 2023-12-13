@@ -10,19 +10,19 @@ char *_getenv(char *name)
     char **my_environ = environ;
     int x;
     char *tkn;
-    char *env_copy;
+    char *env_copy, *value;
 
     for (x = 0; my_environ[x] != NULL; x++)
     {
-        env_copy = _strdup(my_environ[x]);  // Make a copy of the environment variable
+        env_copy = _strdup(my_environ[x]);
         tkn = strtok(env_copy, "=");
         if (_strcmp(tkn, name) == 0)
         {
-            char *value = _strdup(strtok(NULL, "="));  // Copy the value
-            free(env_copy);  // Free the copy of the environment variable
-            return value;
+            value = _strdup(strtok(NULL, "="));
+	    free(env_copy);
+            return (value);
         }
-        free(env_copy);  // Free the copy of the environment variable
+        free(env_copy);
     }
     return (NULL);
 }

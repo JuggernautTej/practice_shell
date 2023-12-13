@@ -19,7 +19,8 @@ path_envcpy = _strdup(path_env);
 cmd_len = _strlen(cmd);
 tkn = strtok(path_envcpy, ":");
  printf("we wa\n");
-while (tkn != NULL)
+ printf("%s\n", path_envcpy);
+ while (tkn != NULL)
 {
 directory_len = _strlen(tkn);
 file_path = malloc(cmd_len + directory_len + 2);

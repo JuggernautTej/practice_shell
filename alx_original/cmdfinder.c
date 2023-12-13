@@ -7,14 +7,12 @@
  */
 char *cmdpath_loc(char *cmd)
 {
-char *path_env, *path_envcpy, *tkn, *file_path;
-int cmd_len, directory_len;
+char *path_env = _getenv("PATH"), *path_envcpy, *tkn, *file_path;
+int cmd_len = _strlen(cmd), directory_len;
 struct stat buff;
-path_env = _getenv("PATH");
 if (path_env)
 {
 path_envcpy = _strdup(path_env);
-cmd_len = _strlen(cmd);
 tkn = strtok(path_envcpy, ":");
 while (tkn != NULL)
 {
@@ -26,6 +24,7 @@ _strcat(file_path, cmd);
 _strcat(file_path, "\0");
 if (stat(file_path, &buff) == 0)
 {
+free(path_env);
 free(path_envcpy);
 return (file_path);
 }
@@ -35,6 +34,7 @@ free(file_path);
 tkn = strtok(NULL, ":");
 }
 }
+free(path_env);
 free(path_envcpy);
 if (stat(cmd, &buff) == 0)
 {

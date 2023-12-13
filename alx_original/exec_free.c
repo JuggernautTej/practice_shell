@@ -51,5 +51,6 @@ else
 {
 wait(&status);
 }
+free(full_cmd);
 free_dog(command);
 }
