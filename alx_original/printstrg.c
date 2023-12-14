@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _printstrg - a function that prints a strg.
+ * _printstrg - a function that prints a string.
  * @strg: the string to be printed.
  * Return: the number of characters printed.
  */
@@ -9,7 +9,7 @@ int _printstrg(char *strg)
 {
 int a;
 if (strg == NULL)
-exit(1);
+exit(EXIT_SUCCESS);
 a = write(STDOUT_FILENO, strg, _strlen(strg));
 if (a == -1)
 {

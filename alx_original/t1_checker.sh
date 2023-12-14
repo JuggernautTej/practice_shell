@@ -10,7 +10,7 @@ declare -a tests=("bin_ls.bash"
                   "empty_input_medium.bash")
 
 # Path to your custom shell executable
-SHELL_EXEC="./test5"
+SHELL_EXEC="./hsh"
 
 # Loop over each test script in the array and run it
 for test_script in "${tests[@]}"

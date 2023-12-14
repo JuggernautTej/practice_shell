@@ -12,6 +12,6 @@ a = access(cmd, F_OK);
 if (a == -1)
 {
 perror("Command does not exist");
-exit(1);
+exit(EXIT_FAILURE);
 }
 }

@@ -3,7 +3,7 @@
 /**
  * cmdpath_loc - a program that finds a path of a command.
  * @cmd: the command.
- *  Return: a string of the full path of the command.
+ * Return: a string of the full path of the command.
  */
 char *cmdpath_loc(char *cmd)
 {
@@ -38,7 +38,7 @@ free(path_env);
 free(path_envcpy);
 if (stat(cmd, &buff) == 0)
 {
-return (cmd);
+return (_strdup(cmd));
 }
 else
 {

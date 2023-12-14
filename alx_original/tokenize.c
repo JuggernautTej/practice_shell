@@ -11,38 +11,38 @@ int x = 0, arg_count = 0;
 char *tkn, *strg_cpy;
 char **array;
 strg_cpy = _strdup(strg);
-tkn = strtok(strg_cpy, " \n");
+tkn = strtok(strg_cpy, " \t\n");
 if (tkn == NULL)
 {
 free(strg_cpy);
-exit(1);
+exit(EXIT_FAILURE);
 }
 while (tkn)
 {
 arg_count++;
-tkn = strtok(NULL, " \n");
+tkn = strtok(NULL, " \t\n");
 }
 free(strg_cpy);
 array = (char **)malloc((arg_count + 1) * sizeof(char *));
 if (array == NULL)
 {
 perror("Error allocating memory");
-exit(1);
+exit(EXIT_FAILURE);
 }
-tkn = strtok(strg, " \n");
+tkn = strtok(strg, " \t\n");
 if (tkn == NULL)
 {
-exit(1);
+exit(EXIT_FAILURE);
 }
 while (tkn)
 {
 array[x] = _strdup(tkn);
 if (array[x] == NULL)
 {
-exit(1);
+exit(EXIT_FAILURE);
 }
 x++;
-tkn = strtok(NULL, " \n");
+tkn = strtok(NULL, " \t\n");
 }
 array[x] = NULL;
 return (array);

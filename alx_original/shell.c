@@ -11,7 +11,7 @@ char *s_input = NULL;
 char **s_array;
 while (1)
 {
-s_input = our_prompt();
+s_input = my_prompt();
 if (s_input == NULL)
 {
 free(s_input);
@@ -25,5 +25,5 @@ exec_cmd(s_array);
 }
 free(s_input);
 }
-return (0);
+return (EXIT_SUCCESS);
 }
