@@ -17,7 +17,7 @@ fflush(stdout);
 in = getline(&s_buf, &s_bufsize, stdin);
 if (in == -1)
 {
-if (in == EOF)
+if (feof(stdin))
 {
 free(s_buf);
 exit(EXIT_SUCCESS);
@@ -33,5 +33,12 @@ if (s_buf[in - 1] == '\n')
 {
 s_buf[in - 1] = '\0';
 }
+
+if (s_buf[0] != '\0' && strspn(s_buf, " \t\n\r\f\v") == strlen(s_buf))
+{
+free(s_buf);
+exit(EXIT_SUCCESS); /* Exit with status 0 if the input is just spaces */
+}
+
 return (s_buf);
 }
